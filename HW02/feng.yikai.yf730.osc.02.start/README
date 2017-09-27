@@ -8,64 +8,52 @@ Files list:
 
 /README: reports on my submission
 /Makefile: file containing all of your compiler directives
-/makefile.ini: initial makefile example for running stack_array
 
 /bin
-    /fifo_test: executable file compiled from fifo_test.c for fifo test
-    /stack_test1: executable file compiled from stack_test.c for array test
-    /stack_test2: executable file compiled from stack_test.c for list test
+    /decoder: executable file compiled from decoder.c
+    /multi_converter: executable file compiled from multi_converter.c
+    /program_trace: executable file compiled from program_trace.c
 
 /include
-    /fifo.h: contain function declarations and macro definitions to be shared for Question 6
-    /list.h: contain function declarations and macro definitions to be shared for Question 5
-    /stack.h: contain function declarations and macro definitions to be shared for Question 5, 6
+    /converters.h: contain function declarations and macro definitions to be shared for Question 3
 
 /lib
-    /libstack1.a: generate libstack.a for Question 2
-    /libstack2.a: generate libstack.a for Question 5
-    /libfifo.a: generate libfifo.a for Question 6
+    /converters.a: generate converters.a for Question 3
 
 /obj
-    /fifo_list.o: object file compiled from fifo_list.c
-    /fifo_test.o: object file compiled from fifo_test.c
-    /list_impl.o: object file compiled from list_impl.c
-    /stack_array.o: object file compiled from stack_array.c
-    /stack_list.o: object file compiled from stack_list.c
-    /stack_test.o: object file compiled from stack_test.c
+    /converters.o: object file compiled from converters.c
+    /decoder.o: object file compiled from decoder.c
+    /multi_converter.o: object file compiled from multi_converter.c
+    /program_trace.o: object file compiled from program_trace.c
 
 /src
-    /fifo_list.c: implement list version of fifo for Question 6
-    /fifo_test.c: initially implement fifo test
-    /list_impl.c: implement the doubly linked list function for Question 4
-    /stack_array.c: initially implement array version of stack
-    /stack_list.c: implement list version of stack for Question 5
-    /stack_test.c: initially implement stack test
-
+    /converters.c: initial implement of converters
+    /decoder.c: implement decoder for Question 2
+    /multi_converter.c: implement multi_converter for Question 3
+    /program_trace.c: implement program_trace for Question 1
+    
 
 ==========================================================================================================
 Compilation rules:
 (Detailed information of all compiled files are included in the file explanation above.)
 
+Question 1:
+${OBJ}/program_trace.o
+${BIN}/program_trace
+runtrace
+
 Question 2:
-${OBJ}/stack_array.o
-${OBJ}/stack_test.o 
-${LIB}/libstack1.a 
-${BIN}/stack_test1 
-runarray
+${OBJ}/decoder.o
+${BIN}/decoder
+rundecoder
 
-Question 5:
-${OBJ}/list_impl.o
-${OBJ}/stack_list.o
-${LIB}/libstack2.a
-${BIN}/stack_test2
-runlist
-
-Question 6:
-${OBJ}/fifo_list.o
-${OBJ}/fifo_test.o
-${LIB}/libfifo.a
-${BIN}/fifo_test
-runfifo
+Question 3:
+${OBJ}/converters.o
+${OBJ}/multi_converter.o
+${INC}/converters.h
+${LIB}/converters.a
+${BIN}/multi_converter
+runconverter
 
 
 ==========================================================================================================
@@ -86,5 +74,3 @@ C3: i = 2
 GC1: j = 0
 GC2: j = 1
 GC3: j = 2
-
-Question 2
